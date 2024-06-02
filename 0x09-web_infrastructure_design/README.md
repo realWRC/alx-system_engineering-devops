@@ -5,4 +5,4 @@ works. We were instructed to whiteboard three versions of web infrastructure and
 aspects about the various components.
 
 The whiteboards are embedded in markdown pages with the respective names of the whiteboards
-from the intranet. All whiteboards were done on [draw.io](drawio.com).
+from the intranet. All whiteboards were done on [draw.io](www.drawio.com).
