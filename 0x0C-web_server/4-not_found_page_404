@@ -5,6 +5,7 @@
 sudo apt -y install nginx
 mkdir -p /etc/nginx/html
 echo "Hello World!" >/etc/nginx/html/index.html
+echo "Ceci n'est pas une page" >/etc/nginx/html/404.html
 printf %s "server {
   listen 80 default_server;
   listen [::]:80 default_server;
@@ -12,7 +13,9 @@ printf %s "server {
   index  index.html index.htm;
 
   location /redirect_me {
-        return 301 https://www.youtube.com/;
+        return 301 https://www.google.com/;
     }
+  error_page 404 /404.html;
+  location
 }" >/etc/nginx/sites-available/default
 service nginx restart
