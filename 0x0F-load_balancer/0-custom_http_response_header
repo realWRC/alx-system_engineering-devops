@@ -10,7 +10,7 @@ sudo mkdir -p /var/www/html /var/www/error
 
 # Permissions to allow file creation
 sudo chmod -R 755 /var/www
-echo 'Hello World' >/var/www/html/index.html
+echo 'Hello World!' >/var/www/html/index.html
 echo "Ceci n'est pas une page" >/var/www/html/404.html
 
 # Configuration settings string
