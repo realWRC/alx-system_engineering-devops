@@ -1,11 +1,10 @@
-#/usr/bin/env bash
+#!/usr/bin/env bash
 # Install and configure HAproxy on loab-balancer server.
 sudo apt-get -y update
 sudo apt-get -y install haproxy
 
 #Configuration
-configuration=\
-"
+configuration="
 frontend http-in
   bind *:80
   mode http
@@ -15,7 +14,7 @@ backend servers
   server 510384-web-01 35.153.93.227:80 check
   server 510384-web-02 54.198.77.248:80 check
 "
-sudo echo "$configuration" >> /etc/haproxy/haproxy.cfg
+echo "$configuration" | sudo tee -a /etc/haproxy/haproxy.cfg
 
 #Enabling haproxy and restarting
 echo "ENABLED=1" | sudo tee -a /etc/default/haproxy
