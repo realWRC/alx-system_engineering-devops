@@ -6,14 +6,14 @@ sudo apt-get -y install haproxy
 #Configuration
 configuration=\
 "
-frontend the-frontend
-        bind *:80
-        mode http
-        default_backend the-backend
-backend the-backend
-        balance roundrobin
-        server 510384-web-01 35.153.93.227 check
-        server 510384-web-02 54.198.77.248 check
+frontend http-in
+  bind *:80
+  mode http
+  default_backend servers
+backend servers
+  balance roundrobin
+  server 510384-web-01 35.153.93.227:80 check
+  server 510384-web-02 54.198.77.248:80 check
 "
 sudo echo "$configuration" >> /etc/haproxy/haproxy.cfg
 
