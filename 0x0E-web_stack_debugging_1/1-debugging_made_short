@@ -1,6 +1,0 @@
-#!/usr/bin/env bash
-# Bash script that configures Nginx to listen to port 80
-# by creating a softlink to sites-available/default file
-ln -sf /etc/nginx/sites-available/default /etc/nginx/sites-enabled/default
-service nginx restart
-pkill -o nginx
