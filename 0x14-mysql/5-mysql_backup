@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+# Bash script to create an archive backup of all mysql databases
 mysql_backup_id=$(date +'%d-%m-%Y')
-mysqldump -u root -p"$1" --all-databases >backup.sql
-tar -czf $mysql_backup_id.tar.gz backup.sql
+mysqldump -uroot -p"$1" --all-databases >backup.sql
+tar -czf "$mysql_backup_id".tar.gz backup.sql
