@@ -16,8 +16,7 @@ if __name__ == '__main__':
     for user in users:
         id = user.get('id')
         username = user.get('username')
-        url = "https://jsonplaceholder.typicode.com/users/{}".format(id)
-        r = requests.get(url + "/todos/")
+        r = requests.get(url + "/{}/todos/".format(id))
         jobs = r.json()
         dictionary[id] = []
         for job in jobs:
