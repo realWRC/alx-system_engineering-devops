@@ -12,7 +12,7 @@ if __name__ == "__main__":
     url = "https://jsonplaceholder.typicode.com/users/{}".format(sys.argv[1])
 
     r = requests.get(url)
-    employee_name = r.json().get('name')
+    employee_name = r.json().get('username')
 
     r = requests.get(url + "/todos")
     jobs = r.json()
