@@ -20,5 +20,5 @@ if __name__ == "__main__":
     with open("{}.csv".format(id), 'w') as f:
         for job in jobs:
             f.write('"{}","{}","{}","{}"\n'
-                    .format(id, username, task.get('completed'),
-                            task.get('title')))
+                    .format(id, employee_name, job.get('completed'),
+                            job.get('title')))
