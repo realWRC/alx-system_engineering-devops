@@ -18,7 +18,7 @@ def top_ten(subreddit):
 
     browser = {'User-Agent': 'Google Chrome Version 127.0.6533.100'}
     url = 'https://www.reddit.com/r/{}/hot.json'.format(subreddit)
-    response = get(url, headers=browser)
+    response = get(url, headers=browser, allow_redirects=False)
     result = response.json()
     try:
         for i in range(0, 10):
