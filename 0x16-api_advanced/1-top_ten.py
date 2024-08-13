@@ -5,7 +5,7 @@ prints the titles of the first 10 hot posts listed for a
 given subreddit.
 """
 
-from requests import get
+import requests
 
 
 def top_ten(subreddit):
@@ -18,7 +18,7 @@ def top_ten(subreddit):
 
     browser = {'User-Agent': 'Google Chrome Version 127.0.6533.100'}
     url = 'https://www.reddit.com/r/{}/hot.json'.format(subreddit)
-    response = get(url, headers=browser, allow_redirects=False)
+    response = requests.get(url, headers=browser, allow_redirects=False)
     result = response.json()
     try:
         for i in range(0, 10):

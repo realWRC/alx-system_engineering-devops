@@ -4,7 +4,7 @@ Defines function number_of_subscribers: Function that queries the Reddit
 API and returns the number of subscribers for a given subreddit.
 """
 
-from requests import get
+import requests
 
 
 def number_of_subscribers(subreddit):
@@ -17,7 +17,7 @@ def number_of_subscribers(subreddit):
 
     browser = {'User-Agent': 'Google Chrome Version 127.0.6533.100'}
     url = 'https://www.reddit.com/r/{}/about.json'.format(subreddit)
-    response = get(url, headers=browser, allow_redirects=False)
+    response = requests.get(url, headers=browser, allow_redirects=False)
     result = response.json()
 
     try:
