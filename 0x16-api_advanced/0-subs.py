@@ -18,9 +18,6 @@ def number_of_subscribers(subreddit):
     browser = {'User-Agent': 'Google Chrome Version 127.0.6533.100'}
     url = 'https://www.reddit.com/r/{}/about.json'.format(subreddit)
     response = requests.get(url, headers=browser, allow_redirects=False)
-    if response.status_code == 404:
-        return (0)
-
     result = response.json()
 
     try:
