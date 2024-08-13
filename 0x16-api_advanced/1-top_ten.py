@@ -12,7 +12,7 @@ def top_ten(subreddit):
     first 10 hot posts listed for a given subreddit.
     """
     if subreddit is None or not isinstance(subreddit, str):
-        return (0)
+        return (None)
 
     browser = {'User-Agent': 'Google Chrome Version 127.0.6533.100'}
     url = 'https://www.reddit.com/r/{}/hot.json'.format(subreddit)
@@ -26,5 +26,4 @@ def top_ten(subreddit):
             print(post)
 
     except Exception as e:
-        print(e)
         return (0)
