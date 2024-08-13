@@ -1,15 +1,15 @@
 #!/usr/bin/python3
 """
-Defines function number_of_subscribers.
+Defines function top_ten
 """
 
 from requests import get
 
 
-def number_of_subscribers(subreddit):
+def top_ten(subreddit):
     """
-    Function that queries the Reddit API and returns the number of subscribers
-    for a given subreddit.
+    Function that queries the Reddit API and prints the titles of the
+    first 10 hot posts listed for a given subreddit.
     """
     if subreddit is None or not isinstance(subreddit, str):
         return (0)
@@ -18,8 +18,13 @@ def number_of_subscribers(subreddit):
     url = 'https://www.reddit.com/r/{}/hot.json'.format(subreddit)
     response = get(url, headers=browser)
     result = response.json()
-    return result.get('children').get('subscribers')
+    # print(result.get('data').get('children')[2].get('data').get('title'))
     try:
-        return result.get('data').get('subscribers')
+        for i in range(0, 10):
+            post = result.get('data').get('children')[i].get('data')\
+                    .get('title')
+            print(post)
+
     except Exception as e:
+        print(e)
         return (0)
