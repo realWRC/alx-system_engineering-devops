@@ -27,7 +27,8 @@ def recurse(subreddit, hot_list=None, page=None):
     if response.status_code == 200:
         result = response.json().get("data")
         if result:
-            titles = [child.get("data").get("title") for child in result.get("children", [])]
+            titles = [child.get("data").get("title")
+                      for child in result.get("children", [])]
             hot_list.extend(titles)
 
             page = result.get("after")
