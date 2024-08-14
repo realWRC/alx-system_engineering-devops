@@ -23,21 +23,24 @@ def top_ten(subreddit):
         response.raise_for_status()
         result = response.json()
     except requests.exceptions.HTTPError as http_err:
-        print("HTTP error occurred: {}".format(http_err))
-        return None
+        # print("HTTP error occurred: {}".format(http_err))
+        print("None")
+        return
     except requests.exceptions.RequestException as req_err:
-        print("Error occurred: {}".format(req_err))
-        return None
+        # print("Error occurred: {}".format(req_err))
+        print("None")
+        return
     except ValueError:
-        print("Response content is not valid JSON or is empty.")
-        return None
+        # print("Response content is not valid JSON or is empty.")
+        print("None")
+        return
 
     if result.get("data"):
         for child in result.get("data").get("children", []):
             print(child.get("data").get("title"))
     else:
-        print("No data found in the response.")
-        return None
+        print("None")
+        return
 
 # #!/usr/bin/python3
 # """
