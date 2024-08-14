@@ -21,6 +21,11 @@ def top_ten(subreddit):
     response = requests.get(
             url, headers=browser, allow_redirects=False
             )
+
+    if response.status_code == 404:
+        print("None")
+        return
+
     result = response.json()
     try:
         for i in range(0, 10):
