@@ -24,3 +24,7 @@ def number_of_subscribers(subreddit):
         return result.get('data').get('subscribers')
     except Exception:
         return (0)
+
+
+if __name__ == "__main__":
+    pass
