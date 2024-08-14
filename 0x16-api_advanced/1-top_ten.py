@@ -18,17 +18,9 @@ def top_ten(subreddit):
 
     browser = {'User-Agent': 'Google Chrome Version 127.0.6533.100'}
     url = 'https://www.reddit.com/r/{}/hot.json'.format(subreddit)
-    params = {
-            "limit": 10
-            }
     response = requests.get(
-            url, headers=browser, params=params, allow_redirects=False
+            url, headers=browser, allow_redirects=False
             )
-
-    if response.status_code == 404:
-        print("None")
-        return
-
     result = response.json()
     try:
         for i in range(0, 10):
