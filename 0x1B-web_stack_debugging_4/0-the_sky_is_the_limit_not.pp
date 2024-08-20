@@ -7,7 +7,7 @@ exec { 'increase_ulimit':
 
 # Restarts nginx
 exec { 'nginx-restart':
-  command       => '/etc/init.d/nginx restart',
-  path          => ['/usr/sbin', '/sbin', '/usr/local/bin', '/bin', '/usr/bin'],
-  refreshonly   => true,
+  command     => '/etc/init.d/nginx restart',
+  path        => ['/usr/sbin', '/sbin', '/usr/local/bin', '/bin', '/usr/bin'],
+  refreshonly => true,
 }
