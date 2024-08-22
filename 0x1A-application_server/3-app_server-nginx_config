@@ -27,6 +27,12 @@ server {
         proxy_set_header X-Forwarded-Proto $scheme;
     }
 
+    location /airbnb-dynamic/number_odd_or_even/ {
+        rewrite /airbnb-dynamic/(.*) $1 break;
+        include proxy_params;
+        proxy_pass http://localhost:5001/number_odd_or_even;
+    }
+
     # Redirect specific request
     if ($request_filename ~ redirect_me) {
         rewrite ^ https://youtube.com permanent;
